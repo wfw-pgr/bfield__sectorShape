@@ -3,6 +3,11 @@ import numpy as np
 import nkBasicAlgs.integrate__GaussLegendre as igl
 
 
+# ============================================================ #
+# =  integral formulae given by W.Kleeven ECPM (2016)        = #
+# ============================================================ #
+
+
 # ========================================================= #
 # ===  bfield__sectorShape.py                           === #
 # ========================================================= #
@@ -119,10 +124,10 @@ if ( __name__=="__main__" ):
     # ------------------------------------------------- #
     r1    , r2     =   0.4,  0.5
     th1   , th2    = -30.0, 30.0
-    z1    , z2     =  0.04, 0.05
+    z1    , z2     =  0.02, 0.03
     alpha1, alpha2 =   0.0,  0.0
     J0             =   2.05
-    nGauss         =   50
+    nGauss         =   20
     
     # ------------------------------------------------- #
     # --- [2] generate coordinate                   --- #
@@ -152,7 +157,7 @@ if ( __name__=="__main__" ):
     # --- [4] save in a file                        --- #
     # ------------------------------------------------- #
     import nkUtilities.save__pointFile as spf
-    outFile   = "dat/bfield.dat"
+    outFile   = "test/bfield.dat"
     spf.save__pointFile( outFile=outFile, Data=bfield )
 
     # ------------------------------------------------- #
@@ -161,7 +166,7 @@ if ( __name__=="__main__" ):
     import nkUtilities.load__config   as lcf
     import nkUtilities.cMapTri        as cmt
     config                   = lcf.load__config()
-    pngFile                  = "png/bfield.png"
+    pngFile                  = "test/bfield.png"
     config["FigSize"]        = [6,6]
     config["cmp_position"]   = [0.16,0.16,0.90,0.86]
     config["xTitle"]         = "X (m)"
